@@ -12,7 +12,7 @@
 # For max allowed timeout refer to .github/time_budget.yaml
 
 # Wormhole Galaxy e2e tests
-# TODO: Re-enable Galaxy CCL tests after fixing timeout issue (see tenstorrent/temporary-issue-dump#1)
+# TODO: Re-enable Galaxy CCL tests after fixing timeout issue (see ebanerjeeTT/issue_dump#851)
 # - name: Galaxy CCL tests
 #   cmd: pytest tests/nightly/tg/ccl --ignore tests/nightly/tg/ccl/moe
 #   skus:
