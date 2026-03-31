@@ -21,13 +21,14 @@
 #   owner_id: U05ACKAJTHS # Naif Tarafdar
 #   team: ttnn
 
-- name: Galaxy MoE tests
-  cmd: TT_MESH_GRAPH_DESC_PATH="tests/tt_metal/tt_fabric/custom_mesh_descriptors/single_galaxy_1x16_torus_graph_descriptor.textproto" pytest tests/nightly/tg/ccl/moe
-  skus:
-    wh_galaxy:
-      timeout: 3
-  owner_id: U05ACKAJTHS # Naif Tarafdar
-  team: ttnn
+# TODO: Disable Galaxy MoE tests due to timeout issue (see ebanerjeeTT/issue_dump#851)
+# - name: Galaxy MoE tests
+#   cmd: TT_MESH_GRAPH_DESC_PATH="tests/tt_metal/tt_fabric/custom_mesh_descriptors/single_galaxy_1x16_torus_graph_descriptor.textproto" pytest tests/nightly/tg/ccl/moe
+#   skus:
+#     wh_galaxy:
+#       timeout: 3
+#   owner_id: U05ACKAJTHS # Naif Tarafdar
+#   team: ttnn
 
 - name: Galaxy Fabric unit tests
   cmd: build/test/tt_metal/tt_fabric/fabric_unit_tests --gtest_filter="NightlyFabric*Fixture.*"
