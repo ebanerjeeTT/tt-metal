@@ -21,15 +21,17 @@
   model-name: falcon7b
   model-type: LLM
 
-- name: t3k_LLM_falcon40b_model_perf_tests
-  cmd: run_t3000_falcon40b_tests
-  skus:
-    wh_llmbox_perf:
-      timeout: 75
-  owner_id: U053W15B6JF # Djordje Ivanovic
-  team: models
-  model-name: falcon40b
-  model-type: LLM
+# Disabled by auto-triage, see https://github.com/ebanerjeeTT/issue_dump/issues/882
+# Performance regression in Falcon40B model causing CI failures
+# - name: t3k_LLM_falcon40b_model_perf_tests
+#   cmd: run_t3000_falcon40b_tests
+#   skus:
+#     wh_llmbox_perf:
+#       timeout: 75
+#   owner_id: U053W15B6JF # Djordje Ivanovic
+#   team: models
+#   model-name: falcon40b
+#   model-type: LLM
 
 - name: t3k_CNN_resnet50_model_perf_tests
   cmd: run_t3000_resnet50_tests
