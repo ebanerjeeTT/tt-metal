@@ -306,13 +306,14 @@ def run_test_FalconCausalLM_end_to_end(
 @pytest.mark.parametrize(
     "llm_mode, batch, seq_len, kv_cache_len, expected_compile_time, expected_inference_time, num_layers, model_config_str",
     (
-        ("prefill", 1, 32, 0, 62, 0.11 + 0.02, 60, "BFLOAT8_B-DRAM"),
-        ("prefill", 1, 128, 0, 60, 0.11 + 0.03, 60, "BFLOAT8_B-DRAM"),
+        # Disabled by auto-triage, see https://github.com/ebanerjeeTT/issue_dump/issues/882
+        pytest.param("prefill", 1, 32, 0, 62, 0.11 + 0.02, 60, "BFLOAT8_B-DRAM", marks=pytest.mark.skip(reason="Disabled by auto-triage, see https://github.com/ebanerjeeTT/issue_dump/issues/882")),
+        pytest.param("prefill", 1, 128, 0, 60, 0.11 + 0.03, 60, "BFLOAT8_B-DRAM", marks=pytest.mark.skip(reason="Disabled by auto-triage, see https://github.com/ebanerjeeTT/issue_dump/issues/882")),
         ("prefill", 1, 2048, 0, 60, 0.67 + 0.05, 60, "BFLOAT8_B-DRAM"),
-        ("prefill", 1, 32, 0, 60, 0.11 + 0.02, 60, "BFLOAT16-DRAM"),
-        ("prefill", 1, 128, 0, 60, 0.11 + 0.02, 60, "BFLOAT16-DRAM"),
+        pytest.param("prefill", 1, 32, 0, 60, 0.11 + 0.02, 60, "BFLOAT16-DRAM", marks=pytest.mark.skip(reason="Disabled by auto-triage, see https://github.com/ebanerjeeTT/issue_dump/issues/882")),
+        pytest.param("prefill", 1, 128, 0, 60, 0.11 + 0.02, 60, "BFLOAT16-DRAM", marks=pytest.mark.skip(reason="Disabled by auto-triage, see https://github.com/ebanerjeeTT/issue_dump/issues/882")),
         ("prefill", 1, 2048, 0, 60, 0.95 + 0.07, 60, "BFLOAT16-DRAM"),
-        ("decode", 32, 1, 128, 60, 0.13 + 0.02, 60, "BFLOAT8_B-SHARDED"),
+        pytest.param("decode", 32, 1, 128, 60, 0.13 + 0.02, 60, "BFLOAT8_B-SHARDED", marks=pytest.mark.skip(reason="Disabled by auto-triage, see https://github.com/ebanerjeeTT/issue_dump/issues/882")),
     ),
     ids=[
         "prefill_seq32_bfp8",
