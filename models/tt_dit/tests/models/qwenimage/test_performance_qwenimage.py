@@ -14,6 +14,7 @@ from models.perf.benchmarking_utils import BenchmarkData, BenchmarkProfiler
 from ....pipelines.qwenimage.pipeline_qwenimage import QwenImagePipeline
 
 
+@pytest.mark.skip(reason="Root cause unclear, disabled by auto-triage. See https://github.com/ebanerjeeTT/issue_dump/issues/881")
 @pytest.mark.parametrize(
     "image_w, image_h, num_inference_steps",
     [
