@@ -202,10 +202,11 @@ jobs:
       - name: Disable auto-triage for multi-process tests
         if: ${{ !cancelled() && steps.cluster-validation.outcome == 'success' }}
         run: echo "TT_METAL_OPERATION_TIMEOUT_SECONDS=0" >> $GITHUB_ENV
-      - name: Run Multi-Process tests
-        if: ${{ !cancelled() && steps.cluster-validation.outcome == 'success' }}
-        timeout-minutes: 10
-        uses: ./docker-job/.github/actions/run-multi-process-tests
+      # TODO: Re-enable when issue #852 is resolved - Physical chip id not found for eth coord
+      # - name: Run Multi-Process tests
+      #   if: ${{ !cancelled() && steps.cluster-validation.outcome == 'success' }}
+      #   timeout-minutes: 10
+      #   uses: ./docker-job/.github/actions/run-multi-process-tests
       - uses: tenstorrent/tt-metal/.github/actions/upload-artifact-with-job-uuid@main
         timeout-minutes: 10
         if: ${{ !cancelled() }}
